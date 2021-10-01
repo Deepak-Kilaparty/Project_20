@@ -1,31 +1,42 @@
+// Variables
 var car,wall;
+
+// Physics Variable
 var speed,weight,rating;
 var deformation;
+
+// Game state variable
 var state="pre";
 
 function setup() {
+  // Canvas of size 1600 & 400
   createCanvas(1600,400);
 
+  // Wall object (Sprite)
   wall = createSprite(1500,200,60,height/2);
+  // To set color of wall
   wall.shapeColor=color(80,80,80);
 
+  // Car variable
   car = createSprite(50,200,50,50);
 }
 
 function draw() {
+  // background color as "Black"
   background("black");  
 
+  // Condition to check game state
   if(state==="pre") {
     textSize(20);
     fill("white");
-
     text("Press SPACE BAR.",600,50);
-
+    // if game state = pre & user presses "Space" key
     if(keyDown("space")) {
       state="running";
     }
   }
 
+  // Condition to check game State
   if(state==="running") {
     weight = Math.round(random(400,2500));
     speed = Math.round(random(55,70));
